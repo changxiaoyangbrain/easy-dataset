@@ -67,7 +67,11 @@ export default function Navbar({ projects = [], currentProject }) {
         component="nav"
         position="sticky"
         elevation={0}
-        className="bg-graphite-black/80 backdrop-blur-md border-b border-white/5 shadow-lg"
+        className={`backdrop-blur-md shadow-lg ${
+          resolvedTheme === 'dark' 
+            ? 'bg-graphite-black/80 border-b border-white/5' 
+            : 'bg-white/90 border-b border-gray-200'
+        }`}
         sx={{ ...styles.getAppBarStyles(theme), bgcolor: 'transparent' }} // Override bgcolor to let Tailwind work
         style={{ borderRadius: 0, zIndex: 1200 }}
         role="navigation"

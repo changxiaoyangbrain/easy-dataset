@@ -194,12 +194,12 @@ export default function ModelSelect({
           <IconButton
             size="medium"
             sx={{
-              bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.69)',
-              color: theme.palette.mode === 'dark' ? 'inherit' : 'white',
+              bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(42, 92, 170, 0.08)',
+              color: theme.palette.mode === 'dark' ? 'inherit' : '#2A5CAA',
               borderRadius: 1.5,
               transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
               '&:hover': {
-                bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.35)'
+                bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(42, 92, 170, 0.15)'
               },
               ...(error && {
                 animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -222,7 +222,9 @@ export default function ModelSelect({
                 sx={{
                   width: 20,
                   height: 20,
-                  objectFit: 'contain'
+                  objectFit: 'contain',
+                  background: '#ffffffc9',
+                  borderRadius: '50%'
                 }}
                 onError={e => {
                   e.target.src = '/imgs/models/default.svg';
@@ -266,8 +268,8 @@ export default function ModelSelect({
           onOpen={() => setIsOpen(true)}
           onClose={() => setIsOpen(false)}
           sx={{
-            bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.2)',
-            color: theme.palette.mode === 'dark' ? 'inherit' : 'white',
+            bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(42, 92, 170, 0.08)',
+            color: theme.palette.mode === 'dark' ? 'inherit' : '#2A5CAA',
             borderRadius: 1.5,
             '& .MuiSelect-select': {
               display: 'flex',
@@ -275,7 +277,7 @@ export default function ModelSelect({
               padding: '6px 32px 6px 12px'
             },
             '& .MuiSelect-icon': {
-              color: theme.palette.mode === 'dark' ? 'inherit' : 'white',
+              color: theme.palette.mode === 'dark' ? 'inherit' : '#2A5CAA',
               right: '8px'
             },
             '& .MuiOutlinedInput-notchedOutline': {
@@ -285,7 +287,7 @@ export default function ModelSelect({
               borderColor: 'transparent'
             },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.mode === 'dark' ? 'primary.main' : 'rgba(255, 255, 255, 0.5)'
+              borderColor: theme.palette.mode === 'dark' ? 'primary.main' : 'rgba(42, 92, 170, 0.5)'
             },
             minHeight: '36px'
           }}

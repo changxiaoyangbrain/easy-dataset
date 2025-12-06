@@ -33,19 +33,19 @@ export const logoContainerStyles = {
 
 // 汉堡菜单按钮样式
 export const getHamburgerButtonStyles = theme => ({
-  color: theme.palette.mode === 'dark' ? 'inherit' : 'white',
+  color: theme.palette.mode === 'dark' ? 'inherit' : '#2A5CAA',
   minWidth: 44,
   minHeight: 44,
   transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
   '&:hover': {
     transform: 'scale(1.1)',
-    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.15)'
+    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(42, 92, 170, 0.08)'
   },
   '&:active': {
     transform: 'scale(0.95)'
   },
   '&:focus-visible': {
-    outline: `2px solid ${theme.palette.mode === 'dark' ? theme.palette.secondary.main : 'white'}`,
+    outline: `2px solid ${theme.palette.mode === 'dark' ? theme.palette.secondary.main : '#2A5CAA'}`,
     outlineOffset: 2
   }
 });
@@ -86,13 +86,17 @@ export const getLogoTextStyles = theme => ({
   letterSpacing: '-0.5px',
   fontSize: '1.125rem',
   display: { xs: 'none', md: 'block' },
-  color: 'white',
-  ...(theme.palette.mode === 'dark' && {
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text'
-  })
+  // 根据主题模式设置颜色
+  ...(theme.palette.mode === 'dark'
+    ? {
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text'
+      }
+    : {
+        color: '#2A5CAA' // reactor-blue 反应堆深蓝色
+      })
 });
 
 // 中间导航容器样式
@@ -113,26 +117,27 @@ export const getTabsStyles = theme => ({
     fontSize: '0.875rem',
     fontWeight: 500,
     transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(255, 255, 255, 1)',
+    // 根据主题模式设置文字颜色
+    color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(42, 92, 170, 0.8)', // reactor-blue
     px: 2,
     minHeight: '64px',
     textTransform: 'none',
     letterSpacing: '0.3px',
     '&:hover': {
-      color: 'white',
-      bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.15)'
+      color: theme.palette.mode === 'dark' ? 'white' : '#2A5CAA',
+      bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(42, 92, 170, 0.08)'
     }
   },
   '& .Mui-selected': {
-    color: 'white !important',
+    color: theme.palette.mode === 'dark' ? 'white !important' : '#2A5CAA !important',
     fontWeight: 600,
-    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.2)'
+    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.12)' : 'rgba(42, 92, 170, 0.12)'
   },
   '& .MuiTabs-indicator': {
     height: 3,
     borderRadius: '3px 3px 0 0',
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.secondary.main : 'white',
-    boxShadow: theme.palette.mode === 'dark' ? '0 0 8px rgba(103, 126, 234, 0.5)' : '0 0 8px rgba(255, 255, 255, 0.5)'
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.secondary.main : '#2A5CAA',
+    boxShadow: theme.palette.mode === 'dark' ? '0 0 8px rgba(103, 126, 234, 0.5)' : '0 0 8px rgba(42, 92, 170, 0.3)'
   }
 });
 
@@ -152,15 +157,16 @@ export const actionAreaStyles = {
 // 文档/GitHub 按钮样式
 export const getIconButtonStyles = theme => ({
   display: { xs: 'none', xl: 'flex' },
-  bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.2)',
-  color: theme.palette.mode === 'dark' ? 'inherit' : 'white',
+  // 亮色模式使用深蓝色背景和图标，暗色模式使用透明背景
+  bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(42, 92, 170, 0.08)',
+  color: theme.palette.mode === 'dark' ? 'inherit' : '#2A5CAA',
   borderRadius: 1.5,
   transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
   '&:hover': {
-    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.35)'
+    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(42, 92, 170, 0.15)'
   },
   '&:focus-visible': {
-    outline: `2px solid ${theme.palette.mode === 'dark' ? theme.palette.secondary.main : 'white'}`,
+    outline: `2px solid ${theme.palette.mode === 'dark' ? theme.palette.secondary.main : '#2A5CAA'}`,
     outlineOffset: 2
   }
 });

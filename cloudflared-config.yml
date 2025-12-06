@@ -1,9 +1,9 @@
 # NuCorpus Cloudflare Tunnel 配置文件
 # 用于稳定暴露本地开发服务到公网
 
-# 隧道凭证
-# 隧道名称: nucorpus
-# 连接器 ID: a5f99b4c-35eb-4507-9c7a-ae1d1330595e
+# 隧道凭证（使用 token 方式运行，无需本地凭证文件）
+# 隧道名称: NuCorpus
+# 隧道 ID: 6e13192b-5006-45d7-9e5a-3e2427fbaa19
 # 域名: nucorpus.iati.ai
 # 注意: 使用 token 方式运行时，配置从 Cloudflare Zero Trust 控制台拉取
 
@@ -28,8 +28,8 @@ ingress:
   - service: http_status:404
 
 # 全局配置
-# 协议设置 - 使用 http2 提高稳定性（QUIC 在某些网络环境下不稳定）
-protocol: http2
+# 协议设置
+protocol: quic
 
 # 重试配置
 retries: 5

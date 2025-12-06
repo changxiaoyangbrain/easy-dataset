@@ -103,12 +103,12 @@ export default function TaskIcon({ projectId, theme }) {
         onClick={handleOpenTaskList}
         size="small"
         sx={{
-          bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.15)',
-          color: theme.palette.mode === 'dark' ? 'inherit' : 'white',
+          bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(42, 92, 170, 0.08)',
+          color: theme.palette.mode === 'dark' ? 'inherit' : '#2A5CAA',
           p: 1,
           borderRadius: 1.5,
           '&:hover': {
-            bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.25)'
+            bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(42, 92, 170, 0.15)'
           }
         }}
       >

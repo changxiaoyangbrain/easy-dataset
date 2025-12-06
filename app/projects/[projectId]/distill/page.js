@@ -13,7 +13,6 @@ import TagGenerationDialog from '@/components/distill/TagGenerationDialog';
 import QuestionGenerationDialog from '@/components/distill/QuestionGenerationDialog';
 import AutoDistillDialog from '@/components/distill/AutoDistillDialog';
 import AutoDistillProgress from '@/components/distill/AutoDistillProgress';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { autoDistillService } from './autoDistillService';
 import axios from 'axios';
 import { toast } from 'sonner';
@@ -414,21 +413,6 @@ export default function DistillPage() {
             <Typography variant="h5" component="h1" fontWeight="bold">
               {t('distill.title')}
             </Typography>
-            <Tooltip title={t('common.help')}>
-              <IconButton
-                size="small"
-                onClick={() => {
-                  const helpUrl =
-                    i18n.language === 'en'
-                      ? 'https://docs.easy-dataset.com/ed/en/advanced/images-and-media'
-                      : 'https://docs.easy-dataset.com/jin-jie-shi-yong/images-and-media';
-                  window.open(helpUrl, '_blank');
-                }}
-                sx={{ color: 'text.secondary' }}
-              >
-                <HelpOutlineIcon fontSize="small" />
-              </IconButton>
-            </Tooltip>
           </Box>
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Button
