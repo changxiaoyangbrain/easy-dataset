@@ -19,3 +19,7 @@ mock-login-callback.ts
 prisma/local-db/db.sqlite
 /local-db2
 .trae
+# Project local data/cache (not for git)
+/corpus
+/db.sqlite
+/prisma/prisma/
