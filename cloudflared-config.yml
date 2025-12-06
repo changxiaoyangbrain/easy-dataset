@@ -1,0 +1,49 @@
+# NuCorpus Cloudflare Tunnel 配置文件
+# 用于稳定暴露本地开发服务到公网
+
+# 隧道凭证
+# 隧道名称: nucorpus
+# 连接器 ID: a5f99b4c-35eb-4507-9c7a-ae1d1330595e
+# 域名: nucorpus.iati.ai
+# 注意: 使用 token 方式运行时，配置从 Cloudflare Zero Trust 控制台拉取
+
+# 入口规则配置
+ingress:
+  # NuCorpus 主应用 (Next.js)
+  - hostname: nucorpus.iati.ai # 替换为你的实际域名
+    service: http://192.168.1.221:1717
+    originRequest:
+      # 连接超时设置
+      connectTimeout: 30s
+      # 保持连接时间
+      tcpKeepAlive: 30s
+      # 禁用分块传输编码（某些情况下提高稳定性）
+      disableChunkedEncoding: false
+      # HTTP/2 支持
+      http2Origin: true
+      # 不验证本地 SSL（开发环境）
+      noTLSVerify: true
+
+  # 默认 404 规则（必须放在最后）
+  - service: http_status:404
+
+# 全局配置
+# 协议设置 - 使用 http2 提高稳定性（QUIC 在某些网络环境下不稳定）
+protocol: http2
+
+# 重试配置
+retries: 5
+
+# 连接保活设置
+grace-period: 30s
+
+# 日志级别
+loglevel: info
+# 指标服务（可选，用于监控）
+# metrics: localhost:2000
+
+# 心跳间隔
+# heartbeat-interval: 1m
+
+# 使用多条连接提高可靠性
+# edge-ip-version: auto

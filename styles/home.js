@@ -1,8 +1,8 @@
 // styles/home.js
 export const styles = {
   heroSection: {
-    pt: { xs: 6, md: 10 },
-    pb: { xs: 6, md: 8 },
+    pt: { xs: 2, md: 4 },
+    pb: { xs: 2, md: 4 },
     position: 'relative',
     overflow: 'hidden',
     transition: 'all 0.3s ease-in-out'
@@ -11,18 +11,7 @@ export const styles = {
     background:
       theme.palette.mode === 'dark'
         ? 'radial-gradient(circle at 50% 30%, #2A3C55 0%, #1A1A1A 60%, #000000 100%)' // pronounced nuclear reactor glow center
-        : 'linear-gradient(135deg, rgba(42, 92, 170, 0.08) 0%, rgba(255, 215, 0, 0.08) 100%)',
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'url("/imgs/grid-pattern.png") repeat',
-      opacity: theme.palette.mode === 'dark' ? 0.08 : 0.03, // Slightly increased opacity
-      zIndex: 0
-    }
+        : 'linear-gradient(135deg, rgba(42, 92, 170, 0.08) 0%, rgba(255, 215, 0, 0.08) 100%)'
   }),
   decorativeCircle: {
     position: 'absolute',
@@ -85,6 +74,7 @@ export const styles = {
   }),
   projectCard: {
     height: '100%',
+    minHeight: '280px',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'visible',
@@ -100,9 +90,10 @@ export const styles = {
     mb: 2,
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
-    WebkitLineClamp: 2,
+    WebkitLineClamp: 6,
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    height: '40px'
+    minHeight: '120px',
+    lineHeight: 1.6
   }
 };

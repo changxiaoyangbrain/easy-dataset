@@ -13,8 +13,7 @@ export default function LanguageSwitcher() {
 
   const languages = [
     { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'zh-CN', label: '简体中文', flag: '🇨🇳' },
-    { code: 'tr', label: 'Türkçe', flag: '🇹🇷' }
+    { code: 'zh-CN', label: '简体中文', flag: '🇨🇳' }
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -34,7 +33,7 @@ export default function LanguageSwitcher() {
 
   return (
     <>
-      <Tooltip title="Change Language / 切换语言 / Dil Değiştir">
+      <Tooltip title="Change Language / 切换语言">
         <IconButton
           onClick={handleClick}
           size="small"

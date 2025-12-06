@@ -1,0 +1,83 @@
+2025-12-06T12:42:24Z INF Starting tunnel tunnelID=6e13192b-5006-45d7-9e5a-3e2427fbaa19
+2025-12-06T12:42:24Z INF Version 2025.11.1 (Checksum 5c82c2bd0b57c01fc1aee533aac606c8a6496d49446b68f307b46a6be4524739)
+2025-12-06T12:42:24Z INF GOOS: darwin, GOVersion: go1.25.4, GoArch: arm64
+2025-12-06T12:42:24Z INF Settings: map[cred-file:/Users/dom/.cloudflared/35d65458-c8cf-4f7f-9630-fa337a4f1a29.json credentials-file:/Users/dom/.cloudflared/35d65458-c8cf-4f7f-9630-fa337a4f1a29.json p:http2 protocol:http2 token:*****]
+2025-12-06T12:42:24Z INF cloudflared will not automatically update if installed by a package manager.
+2025-12-06T12:42:24Z INF Generated Connector ID: 11655188-17d9-4863-9583-204075e6209e
+2025-12-06T12:42:24Z INF Initial protocol http2
+2025-12-06T12:42:24Z INF ICMP proxy will use 198.18.0.1 as source for IPv4
+2025-12-06T12:42:24Z INF ICMP proxy will use ::1 in zone lo0 as source for IPv6
+2025-12-06T12:42:24Z INF Created ICMP proxy listening on 198.18.0.1:0
+2025-12-06T12:42:24Z INF Created ICMP proxy listening on [::1]:0
+2025-12-06T12:42:24Z INF ICMP proxy will use 198.18.0.1 as source for IPv4
+2025-12-06T12:42:24Z INF ICMP proxy will use ::1 in zone lo0 as source for IPv6
+2025-12-06T12:42:24Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2025-12-06T12:42:24Z INF You requested 4 HA connections but I can give you at most 2.
+2025-12-06T12:42:24Z INF Registered tunnel connection connIndex=0 connection=ac533d97-1676-49ea-936a-7fd8c369b120 event=0 ip=198.18.1.188 location=nrt08 protocol=http2
+2025-12-06T12:42:24Z INF Updated to new configuration config="{\"ingress\":[{\"hostname\":\"nucorpus.iati.ai\",\"service\":\"http://192.168.1.221:1717\"},{\"service\":\"http_status:404\"}],\"warp-routing\":{\"enabled\":false}}" version=1
+2025-12-06T12:42:25Z INF Registered tunnel connection connIndex=1 connection=93aa5638-9a3f-4f3a-9666-cdd7949fe994 event=0 ip=198.18.0.16 location=nrt10 protocol=http2
+2025-12-06T12:46:48Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:46:48Z ERR failed to serve incoming request error="Failed to proxy HTTP: Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused"
+2025-12-06T12:46:49Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:46:49Z ERR failed to serve incoming request error="Failed to proxy HTTP: Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused"
+2025-12-06T12:46:50Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:46:50Z ERR failed to serve incoming request error="Failed to proxy HTTP: Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused"
+2025-12-06T12:46:52Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:46:52Z ERR failed to serve incoming request error="Failed to proxy HTTP: Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused"
+2025-12-06T12:46:52Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:46:52Z ERR failed to serve incoming request error="Failed to proxy HTTP: Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused"
+2025-12-06T12:46:53Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:46:53Z ERR failed to serve incoming request error="Failed to proxy HTTP: Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 192.168.1.221:1717: connect: connection refused"
+2025-12-06T12:48:06Z INF Lost connection with the edge connIndex=1
+2025-12-06T12:48:06Z ERR  error="client disconnected" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:48:06Z ERR failed to serve incoming request error="Error shutting down control stream: context canceled"
+2025-12-06T12:48:06Z WRN Serve tunnel error error="connection with edge closed" connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T12:48:06Z INF Retrying connection in up to 1s connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T12:48:06Z ERR failed to serve incoming request error="Failed to proxy HTTP: client disconnected"
+2025-12-06T12:48:06Z ERR  error="client disconnected" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:48:06Z ERR  error="client disconnected" connIndex=1 event=1 ingressRule=0 originService=http://192.168.1.221:1717
+2025-12-06T12:48:06Z ERR failed to serve incoming request error="Failed to proxy HTTP: client disconnected"
+2025-12-06T12:48:06Z ERR failed to serve incoming request error="Failed to proxy HTTP: client disconnected"
+2025-12-06T12:48:06Z ERR failed to serve incoming request error="Error shutting down control stream: client disconnected"
+2025-12-06T12:48:06Z ERR Serve tunnel error error="Error shutting down control stream: client disconnected" connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T12:48:06Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T12:48:07Z ERR Connection terminated error="connection with edge closed" connIndex=1
+2025-12-06T12:48:08Z ERR Connection terminated error="Error shutting down control stream: client disconnected" connIndex=0
+2025-12-06T12:48:12Z INF Registered tunnel connection connIndex=0 connection=42968ded-4100-4566-88ca-8be9aca0c2f0 event=0 ip=198.18.1.188 location=nrt07 protocol=http2
+2025-12-06T12:48:12Z INF Registered tunnel connection connIndex=1 connection=055163bc-c4a8-4ed6-a96d-8764ed09dc4f event=0 ip=198.18.0.16 location=nrt05 protocol=http2
+2025-12-06T13:50:52Z INF Lost connection with the edge connIndex=1
+2025-12-06T13:50:52Z ERR failed to serve incoming request error="Error shutting down control stream: client disconnected"
+2025-12-06T13:50:52Z WRN Serve tunnel error error="connection with edge closed" connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T13:50:52Z INF Retrying connection in up to 1s connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T13:50:53Z WRN Connection terminated error="connection with edge closed" connIndex=1
+2025-12-06T13:50:54Z ERR failed to serve incoming request error="Error shutting down control stream: context canceled"
+2025-12-06T13:50:54Z INF Lost connection with the edge connIndex=0
+2025-12-06T13:50:54Z ERR Serve tunnel error error="connection with edge closed" connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T13:50:54Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T13:50:56Z ERR Connection terminated error="connection with edge closed" connIndex=0
+2025-12-06T13:51:09Z INF Registered tunnel connection connIndex=1 connection=514079c9-cd26-49f4-a729-0d25a6227574 event=0 ip=198.18.0.16 location=nrt10 protocol=http2
+2025-12-06T13:51:10Z INF Registered tunnel connection connIndex=0 connection=070ec6a6-99b2-42ff-addd-e39051c63ae0 event=0 ip=198.18.1.188 location=nrt07 protocol=http2
+2025-12-06T13:53:25Z INF Lost connection with the edge connIndex=1
+2025-12-06T13:53:25Z WRN Serve tunnel error error="connection with edge closed" connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T13:53:25Z INF Retrying connection in up to 1s connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T13:53:25Z INF Lost connection with the edge connIndex=0
+2025-12-06T13:53:25Z WRN Serve tunnel error error="connection with edge closed" connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T13:53:25Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T13:53:25Z ERR failed to serve incoming request error="Error shutting down control stream: context canceled"
+2025-12-06T13:53:25Z ERR failed to serve incoming request error="Error shutting down control stream: client disconnected"
+2025-12-06T13:53:26Z ERR Connection terminated error="connection with edge closed" connIndex=1
+2025-12-06T13:53:26Z ERR Connection terminated error="connection with edge closed" connIndex=0
+2025-12-06T13:53:44Z INF Registered tunnel connection connIndex=0 connection=db608b37-49fd-4d38-bd9f-43d45484bd25 event=0 ip=198.18.1.188 location=nrt16 protocol=http2
+2025-12-06T13:53:44Z INF Registered tunnel connection connIndex=1 connection=34a0c138-8bd1-4084-9faf-7cdc0645ac78 event=0 ip=198.18.0.16 location=nrt01 protocol=http2
+2025-12-06T14:15:56Z INF Lost connection with the edge connIndex=1
+2025-12-06T14:15:56Z WRN Serve tunnel error error="connection with edge closed" connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T14:15:56Z INF Retrying connection in up to 1s connIndex=1 event=0 ip=198.18.0.16
+2025-12-06T14:15:56Z ERR failed to serve incoming request error="Error shutting down control stream: context canceled"
+2025-12-06T14:15:56Z INF Lost connection with the edge connIndex=0
+2025-12-06T14:15:56Z WRN Serve tunnel error error="connection with edge closed" connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T14:15:56Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.18.1.188
+2025-12-06T14:15:56Z ERR failed to serve incoming request error="Error shutting down control stream: context canceled"
+2025-12-06T14:15:56Z ERR Connection terminated error="connection with edge closed" connIndex=0
+2025-12-06T14:15:57Z ERR Connection terminated error="connection with edge closed" connIndex=1
+2025-12-06T14:16:14Z INF Registered tunnel connection connIndex=1 connection=1b80ccb5-cb5b-41e2-81a2-9b33f96a55ec event=0 ip=198.18.0.16 location=nrt09 protocol=http2
+2025-12-06T14:16:14Z INF Registered tunnel connection connIndex=0 connection=89957bcb-b50f-4e26-b486-6aff2214f528 event=0 ip=198.18.1.188 location=nrt07 protocol=http2

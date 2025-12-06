@@ -84,7 +84,7 @@ export default function ProjectList({ projects, onCreateProject }) {
           </Grid>
         ) : (
           projects.map(project => (
-            <Grid item xs={12} sm={6} md={4} key={project.id}>
+            <Grid item xs={12} sm={6} md={3} key={project.id}>
               <ProjectCard project={project} onDeleteClick={handleOpenDeleteDialog} />
             </Grid>
           ))

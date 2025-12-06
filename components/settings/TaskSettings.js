@@ -430,25 +430,7 @@ export default function TaskSettings({ projectId }) {
           </Grid>
         </CardContent>
       </Card>
-      <Card style={{ marginBottom: 20 }}>
-        <CardContent>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Typography variant="subtitle1" gutterBottom>
-                {t('settings.huggingfaceSettings')}
-              </Typography>
-              <TextField
-                fullWidth
-                label={t('settings.huggingfaceToken')}
-                name="huggingfaceToken"
-                value={taskSettings.huggingfaceToken || ''}
-                onChange={handleSettingChange}
-                type="password"
-              />
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+
       {/* 多轮对话数据集设置 */}
       <Card style={{ marginBottom: 20 }}>
         <CardContent>

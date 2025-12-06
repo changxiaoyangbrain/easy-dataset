@@ -6,7 +6,7 @@ import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Box, Tabs, T
 // 导入拆分后的组件
 import LocalExportTab from './export/LocalExportTab';
 import LlamaFactoryTab from './export/LlamaFactoryTab';
-import HuggingFaceTab from './export/HuggingFaceTab';
+// HuggingFaceTab 已移除 - 本项目用于核应急数据集构建，不需要上传到 Hugging Face
 
 const ExportDatasetDialog = ({ open, onClose, onExport, projectId }) => {
   const { t } = useTranslation();
@@ -152,7 +152,6 @@ const ExportDatasetDialog = ({ open, onClose, onExport, projectId }) => {
           <Tabs value={currentTab} onChange={(e, newValue) => setCurrentTab(newValue)} aria-label="export tabs">
             <Tab label={t('export.localTab')} />
             <Tab label={t('export.llamaFactoryTab')} />
-            <Tab label={t('export.huggingFaceTab')} />
           </Tabs>
         </Box>
 
@@ -201,23 +200,7 @@ const ExportDatasetDialog = ({ open, onClose, onExport, projectId }) => {
           />
         )}
 
-        {/* 第三个标签页：HuggingFace */}
-        {currentTab === 2 && (
-          <HuggingFaceTab
-            projectId={projectId}
-            systemPrompt={systemPrompt}
-            reasoningLanguage={reasoningLanguage}
-            confirmedOnly={confirmedOnly}
-            includeCOT={includeCOT}
-            formatType={formatType}
-            fileFormat={fileFormat}
-            customFields={customFields}
-            handleSystemPromptChange={handleSystemPromptChange}
-            handleReasoningLanguageChange={handleReasoningLanguageChange}
-            handleConfirmedOnlyChange={handleConfirmedOnlyChange}
-            handleIncludeCOTChange={handleIncludeCOTChange}
-          />
-        )}
+
       </DialogContent>
     </Dialog>
   );
