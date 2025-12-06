@@ -70,76 +70,17 @@ const UpdateChecker = () => {
     }
   };
 
-  // 设置更新事件监听
+  // 组件挂载时检查更新 (Disabled for local mode)
+  /*
   useEffect(() => {
-    if (!window.electron?.updater) return;
-
-    // 有可用更新
-    const removeUpdateAvailable = window.electron.updater.onUpdateAvailable(info => {
-      console.log('发现新版本:', info);
-      setUpdateAvailable(true);
-      setUpdateInfo(prev => ({
-        ...prev,
-        ...info,
-        releaseUrl: `https://github.com/ConardLi/easy-dataset/releases`
-      }));
-      setOpen(true);
-    });
-
-    // 没有可用更新
-    const removeUpdateNotAvailable = window.electron.updater.onUpdateNotAvailable(() => {
-      console.log('没有可用更新');
-      setUpdateAvailable(false);
-    });
-
-    // 更新错误
-    const removeUpdateError = window.electron.updater.onUpdateError(error => {
-      console.error('更新错误:', error);
-      // setUpdateError(error);
-    });
-
-    // 下载进度
-    const removeDownloadProgress = window.electron.updater.onDownloadProgress(progress => {
-      console.log('下载进度:', progress);
-      setDownloadProgress(progress.percent || 0);
-    });
-
-    // 更新下载完成
-    const removeUpdateDownloaded = window.electron.updater.onUpdateDownloaded(info => {
-      console.log('更新下载完成:', info);
-      setDownloading(false);
-      setUpdateDownloaded(true);
-    });
-
-    // 组件挂载时检查更新
-    const timer = setTimeout(() => {
-      checkForUpdates();
-    }, 5000);
-
-    // 清理函数
-    return () => {
-      clearTimeout(timer);
-      removeUpdateAvailable();
-      removeUpdateNotAvailable();
-      removeUpdateError();
-      removeDownloadProgress();
-      removeUpdateDownloaded();
-    };
+    // ...
   }, []);
 
-  // 定期检查更新（每小时一次）
+  // 定期检查更新 (Disabled for local mode)
   useEffect(() => {
-    if (!window.electron?.updater) return;
-
-    const interval = setInterval(
-      () => {
-        checkForUpdates();
-      },
-      60 * 60 * 1000
-    );
-
-    return () => clearInterval(interval);
+    // ...
   }, []);
+  */
 
   const handleClose = () => {
     setOpen(false);

@@ -36,7 +36,7 @@ export default function DatasetsPage({ params }) {
   });
   const [exportDialog, setExportDialog] = useState({ open: false });
   const [importDialog, setImportDialog] = useState({ open: false });
-  const [selectedIds, setselectedIds] = useState([]);
+  const [selectedIds, setSelectedIds] = useState([]);
   const [availableTags, setAvailableTags] = useState([]);
   const [filterDialogOpen, setFilterDialogOpen] = useState(false);
   const { t } = useTranslation();
@@ -71,7 +71,7 @@ export default function DatasetsPage({ params }) {
 
   const debouncedSearchQuery = useDebounce(searchQuery);
   // 删除进度状态
-  const [deleteProgress, setDeteleProgress] = useState({
+  const [deleteProgress, setDeleteProgress] = useState({
     total: 0, // 总删除问题数量
     completed: 0, // 已删除完成的数量
     percentage: 0 // 进度百分比
@@ -216,7 +216,7 @@ export default function DatasetsPage({ params }) {
   };
 
   const resetProgress = () => {
-    setDeteleProgress({
+    setDeleteProgress({
       total: deleteDialog.count,
       completed: 0,
       percentage: 0
@@ -236,7 +236,7 @@ export default function DatasetsPage({ params }) {
       if (!dataset) return;
       await handleDelete(dataset);
     }
-    setselectedIds([]);
+    setSelectedIds([]);
     // 刷新数据
     getDatasetsList();
     // 关闭确认框
@@ -255,7 +255,7 @@ export default function DatasetsPage({ params }) {
         },
         3,
         (cur, total) => {
-          setDeteleProgress({
+          setDeleteProgress({
             total,
             completed: cur,
             percentage: Math.floor((cur / total) * 100)
@@ -391,15 +391,15 @@ export default function DatasetsPage({ params }) {
       }
 
       const response = await axios.get(url);
-      setselectedIds(response.data.map(dataset => dataset.id));
+      setSelectedIds(response.data.map(dataset => dataset.id));
     } else {
-      setselectedIds([]);
+      setSelectedIds([]);
     }
   };
 
   // 处理单个选择
   const handleSelectItem = id => {
-    setselectedIds(prev => {
+    setSelectedIds(prev => {
       if (prev.includes(id)) {
         return prev.filter(item => item !== id);
       } else {

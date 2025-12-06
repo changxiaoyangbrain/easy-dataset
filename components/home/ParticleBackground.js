@@ -52,22 +52,22 @@ export default function ParticleBackground() {
       }
     };
 
-    // 生成随机颜色
+    // 生成随机颜色 - 核辐射版
     const getRandomColor = () => {
-      // 主题色调
+      // 辐射风格色调
       const colors =
         theme.palette.mode === 'dark'
           ? [
-              'rgba(255, 255, 255, 0.5)', // 白色
-              'rgba(100, 181, 246, 0.5)', // 蓝色
-              'rgba(156, 39, 176, 0.4)', // 紫色
-              'rgba(121, 134, 203, 0.5)' // 靛蓝色
+              'rgba(96, 165, 250, 0.6)',  // 反应堆浅蓝 (Cherenkov Blue)
+              'rgba(42, 92, 170, 0.4)',   // 反应堆深蓝
+              'rgba(255, 215, 0, 0.5)',   // 辐射黄 (Nuclear Yellow)
+              'rgba(16, 185, 129, 0.3)'   // 荧光绿 (Radium Green)
             ]
           : [
-              'rgba(42, 92, 170, 0.5)', // 主蓝色
-              'rgba(66, 165, 245, 0.4)', // 浅蓝色
-              'rgba(94, 53, 177, 0.3)', // 深紫色
-              'rgba(3, 169, 244, 0.4)' // 天蓝色
+              'rgba(42, 92, 170, 0.5)',
+              'rgba(255, 215, 0, 0.4)',
+              'rgba(16, 185, 129, 0.3)',
+              'rgba(96, 165, 250, 0.4)'
             ];
 
       return colors[Math.floor(Math.random() * colors.length)];
@@ -76,34 +76,29 @@ export default function ParticleBackground() {
     // 初始化粒子
     const initParticles = () => {
       particles = [];
-      // 增加粒子数量，但保持性能平衡
-      const particleCount = Math.min(Math.floor(window.innerWidth / 8), 150);
+      // 增加粒子密度 - 模拟辐射尘埃
+      const particleCount = Math.min(Math.floor(window.innerWidth / 6), 200);
 
       for (let i = 0; i < particleCount; i++) {
-        // 创建不同大小和速度的粒子
         const size = Math.random();
-        const speedFactor = Math.max(0.1, size); // 较大的粒子移动较慢
+        const speedFactor = Math.max(0.1, size);
 
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          // 粒子大小更加多样化
-          radius: size * 3 + 0.5,
-          // 使用随机颜色
+          // 粒子更细小，像尘埃
+          radius: size * 2 + 0.5,
           color: getRandomColor(),
-          // 添加发光效果
-          glow: Math.random() * 10 + 5,
-          // 调整速度范围，使运动更加自然
-          speedX: (Math.random() * 0.6 - 0.3) * speedFactor,
-          speedY: (Math.random() * 0.6 - 0.3) * speedFactor,
-          originalSpeedX: (Math.random() * 0.6 - 0.3) * speedFactor,
-          originalSpeedY: (Math.random() * 0.6 - 0.3) * speedFactor,
-          // 添加脉动效果
-          pulseSpeed: Math.random() * 0.02 + 0.01,
+          glow: Math.random() * 8 + 4,
+          // 增加轻微的向上漂移 (热对流)
+          speedX: (Math.random() * 0.4 - 0.2) * speedFactor,
+          speedY: (Math.random() * 0.3 - 0.5) * speedFactor, // 倾向于向上
+          originalSpeedX: (Math.random() * 0.4 - 0.2) * speedFactor,
+          originalSpeedY: (Math.random() * 0.3 - 0.5) * speedFactor,
+          pulseSpeed: Math.random() * 0.03 + 0.01,
           pulseDirection: Math.random() > 0.5 ? 1 : -1,
           pulseAmount: 0,
-          // 粒子透明度
-          opacity: Math.random() * 0.5 + 0.5
+          opacity: Math.random() * 0.6 + 0.4
         });
       }
     };

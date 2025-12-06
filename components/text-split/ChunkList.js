@@ -34,7 +34,9 @@ export default function ChunkList({
   questionFilter,
   setQuestionFilter,
   selectedModel,
-  onChunksUpdate
+  onChunksUpdate,
+  isNuclearMode,
+  setIsNuclearMode
 }) {
   const theme = useTheme();
   const [page, setPage] = useState(1);
@@ -280,6 +282,8 @@ export default function ChunkList({
         selectedModel={selectedModel}
         onFilterChange={handleFilterChange}
         activeFilterCount={getActiveFilterCount()}
+        isNuclearMode={isNuclearMode}
+        setIsNuclearMode={setIsNuclearMode}
       />
 
       <Grid container spacing={2}>

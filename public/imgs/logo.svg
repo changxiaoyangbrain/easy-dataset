@@ -1,18 +1,22 @@
-<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-    <!-- 动态背景 -->
-    <rect width="120" height="120" rx="24" fill="#FFF5EB" />
-
-    <!-- 核心图形（仅调整坐标与尺寸） -->
-    <rect x="53" y="25" width="10" height="70" fill="#3F3D56" />
-    <rect x="28" y="25" width="25" height="10" fill="url(#grad)" />
-    <rect x="28" y="55" width="25" height="10" fill="url(#grad)" />
-    <rect x="28" y="85" width="25" height="10" fill="url(#grad)" />
-    <path d="M63 25 Q83 25 83 55 Q83 85 63 85" fill="none" stroke="url(#grad)" stroke-width="10" />
-
-    <defs>
-        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#FF7E5F" />
-            <stop offset="100%" stop-color="#FEB47B" />
-        </linearGradient>
-    </defs>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Dark Hexagon container -->
+  <path d="M256 26L472.5 151V401L256 526L39.5 401V151L256 26Z" fill="#1A1A1A" stroke="#FFD700" stroke-width="20" transform="scale(0.9) translate(28, -14)"/>
+  
+  <!-- Central Element: Radiation Symbol styled as Data Nodes -->
+  <g transform="translate(256, 256)">
+    <!-- Center Core -->
+    <circle r="40" fill="#FFD700"/>
+    
+    <!-- Blade 1 -->
+    <path d="M-13.3 -75 C-40 -40 -40 -40 -50 0 L-110 0 A 110 110 0 0 1 110 0 L 50 0 C 40 -40 40 -40 13.3 -75 Z" fill="#FFD700" opacity="0.9" transform="rotate(-90)"/>
+    <!-- Correcting simple separate blades for cleaner look -->
+    <path d="M0 -55 L25 -140 A 150 150 0 0 0 -25 -140 Z" fill="#FFD700"/>
+    <path d="M0 -55 L25 -140 A 150 150 0 0 0 -25 -140 Z" fill="#FFD700" transform="rotate(120)"/>
+    <path d="M0 -55 L25 -140 A 150 150 0 0 0 -25 -140 Z" fill="#FFD700" transform="rotate(240)"/>
+    
+    <!-- Data Connection Nodes (Stylized) -->
+    <circle cx="0" cy="-100" r="10" fill="#1A1A1A" stroke="#FFD700" stroke-width="4"/>
+    <circle cx="86.6" cy="50" r="10" fill="#1A1A1A" stroke="#FFD700" stroke-width="4"/>
+    <circle cx="-86.6" cy="50" r="10" fill="#1A1A1A" stroke="#FFD700" stroke-width="4"/>
+  </g>
 </svg>

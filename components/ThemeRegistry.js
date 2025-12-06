@@ -49,10 +49,10 @@ const getTheme = mode => {
         contrastText: '#FFFFFF'
       },
       secondary: {
-        main: '#8B5CF6',
-        dark: '#7039F2',
-        light: '#A78BFA',
-        contrastText: '#FFFFFF'
+        main: '#FFD700', // Nuclear Yellow
+        dark: '#F59E0B',
+        light: '#FDE68A',
+        contrastText: '#1A1A1A' // Black text on yellow background
       },
       error: {
         main: errorColor,
@@ -303,7 +303,7 @@ export default function ThemeRegistry({ children }) {
   }
 
   return (
-    <NextThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <NextThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <InnerThemeRegistry>{children}</InnerThemeRegistry>
     </NextThemeProvider>
   );

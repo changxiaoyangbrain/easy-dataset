@@ -8,21 +8,25 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import TokenOutlinedIcon from '@mui/icons-material/TokenOutlined';
 import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 import DatasetOutlinedIcon from '@mui/icons-material/DatasetOutlined';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import * as styles from './styles';
 
 /**
  * NavigationTabs 组件
- * 桌面端导航 Tabs，包含数据源、数据蒸馏、问题管理、数据集管理、更多等 Tab
+ * 桌面端导航 Tabs，包含数据源、数据蒸馏、问题管理、数据集管理、模型测试、项目设置等 Tab
  */
 export default function NavigationTabs({ theme, pathname, currentProject, handleMenuOpen, handleMenuClose }) {
   const { t } = useTranslation();
 
   // 计算当前 Tab 值
   const getCurrentTabValue = () => {
-    if (pathname.includes('/settings') || pathname.includes('/playground') || pathname.includes('/datasets-sq')) {
-      return 'more';
+    if (pathname.includes('/settings')) {
+      return `/projects/${currentProject}/settings`;
+    }
+    if (pathname.includes('/playground')) {
+      return `/projects/${currentProject}/playground`;
     }
     if (pathname.includes('/datasets') || pathname.includes('/multi-turn') || pathname.includes('/image-datasets')) {
       return 'datasets';
@@ -91,16 +95,23 @@ export default function NavigationTabs({ theme, pathname, currentProject, handle
           sx={styles.tabIconWrapperStyles}
         />
         <Tab
-          icon={<MoreVertIcon fontSize="small" />}
+          icon={<ScienceOutlinedIcon fontSize="small" />}
           iconPosition="start"
-          label={
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.25 }}>
-              {t('common.more')}
-              <ArrowDropDownIcon fontSize="small" sx={{ ml: 0.25 }} />
-            </Box>
-          }
-          onMouseEnter={e => handleMenuOpen(e, 'more')}
-          value="more"
+          label={t('playground.title')}
+          value={`/projects/${currentProject}/playground`}
+          component={Link}
+          href={`/projects/${currentProject}/playground`}
+          onClick={handleMenuClose}
+          sx={styles.tabIconWrapperStyles}
+        />
+        <Tab
+          icon={<SettingsOutlinedIcon fontSize="small" />}
+          iconPosition="start"
+          label={t('settings.title')}
+          value={`/projects/${currentProject}/settings`}
+          component={Link}
+          href={`/projects/${currentProject}/settings`}
+          onClick={handleMenuClose}
           sx={styles.tabIconWrapperStyles}
         />
       </Tabs>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Typography, Checkbox, Button, Select, MenuItem, Tooltip, Menu, IconButton, Badge } from '@mui/material';
+import { Box, Typography, Checkbox, Button, Select, MenuItem, Tooltip, Menu, IconButton, Badge, FormControlLabel, Switch } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';
 import DownloadIcon from '@mui/icons-material/Download';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
@@ -8,6 +8,7 @@ import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EditIcon from '@mui/icons-material/Edit';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import ScienceIcon from '@mui/icons-material/Science'; // Adding icon for nuclear mode
 import axios from 'axios';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
@@ -26,7 +27,9 @@ export default function ChunkListHeader({
   chunks = [], // 添加chunks参数，用于导出文本块
   selectedModel = {},
   onFilterChange = null,
-  activeFilterCount = 0
+  activeFilterCount = 0,
+  isNuclearMode = false,
+  setIsNuclearMode = () => {}
 }) {
   const { t, i18n } = useTranslation();
 
@@ -67,10 +70,13 @@ export default function ChunkListHeader({
     }
 
     try {
+      // 准备模型信息
+      const modelInfo = { ...selectedModel, generationMode: isNuclearMode ? 'nuclear' : undefined };
+
       // 调用创建任务接口
       const response = await axios.post(`/api/projects/${projectId}/tasks`, {
         taskType: 'question-generation',
-        modelInfo: selectedModel,
+        modelInfo: modelInfo,
         language: i18n.language,
         detail: '批量生成问题任务'
       });
@@ -183,6 +189,26 @@ export default function ChunkListHeader({
           width: { xs: '100%', md: 'auto' }
         }}
       >
+        <FormControlLabel
+          control={
+            <Switch
+              checked={isNuclearMode}
+              onChange={e => setIsNuclearMode(e.target.checked)}
+              color="error" // Use error color (red) to signify "Nuclear"
+              size="small"
+            />
+          }
+          label={
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <ScienceIcon fontSize="small" sx={{ mr: 0.5, color: isNuclearMode ? 'error.main' : 'text.secondary' }} />
+              <Typography variant="body2" color={isNuclearMode ? 'error.main' : 'text.secondary'}>
+                {t('textSplit.nuclearMode', { defaultValue: '核应急模式' })}
+              </Typography>
+            </Box>
+          }
+          sx={{ mr: 2, ml: 0 }}
+        />
+
         {/* 更多筛选按钮 */}
         <Tooltip title={t('datasets.moreFilters', { defaultValue: '更多筛选' })}>
           <Badge badgeContent={activeFilterCount} color="error" overlap="circular">

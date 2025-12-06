@@ -149,7 +149,7 @@ export default function UploadArea({
       </Tooltip>
 
       <Typography variant="body2" color="textSecondary">
-        {uploadedFiles.total > 0 ? t('textSplit.mutilFileMessage') : t('textSplit.supportedFormats')}
+        {uploadedFiles.total > 0 ? t('textSplit.multiFileMessage') : t('textSplit.supportedFormats')}
       </Typography>
 
       {files.length > 0 && (

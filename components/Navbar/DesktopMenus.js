@@ -134,60 +134,6 @@ export default function DesktopMenus({ theme, menuState, isMenuOpen, handleMenuC
         </MenuItem>
       </Menu>
 
-      {/* 更多菜单 */}
-      <Menu
-        anchorEl={menuState.anchorEl}
-        open={isMenuOpen('more')}
-        onClose={handleMenuClose}
-        PaperProps={{
-          elevation: 8,
-          sx: styles.getSimpleMenuPaperStyles(theme),
-          onMouseLeave: handleMenuClose
-        }}
-        transformOrigin={{ horizontal: 'center', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
-        MenuListProps={{
-          dense: true,
-          onMouseLeave: handleMenuClose,
-          sx: styles.simpleMenuListStyles
-        }}
-      >
-        <MenuItem
-          component={Link}
-          href={`/projects/${currentProject}/settings`}
-          onClick={handleMenuClose}
-          sx={styles.getSimpleMenuItemStyles(theme)}
-        >
-          <ListItemIcon sx={styles.smallListItemIconStyles}>
-            <SettingsOutlinedIcon fontSize="small" sx={styles.getPrimaryIconColorStyles(theme)} />
-          </ListItemIcon>
-          <ListItemText primary={t('settings.title')} primaryTypographyProps={styles.smallListItemTextStyles} />
-        </MenuItem>
-        <Divider sx={{ my: 0.5, mx: 1 }} />
-        <MenuItem
-          component={Link}
-          href={`/projects/${currentProject}/playground`}
-          onClick={handleMenuClose}
-          sx={styles.getSimpleMenuItemStyles(theme)}
-        >
-          <ListItemIcon sx={styles.smallListItemIconStyles}>
-            <ScienceOutlinedIcon fontSize="small" sx={styles.getPrimaryIconColorStyles(theme)} />
-          </ListItemIcon>
-          <ListItemText primary={t('playground.title')} primaryTypographyProps={styles.smallListItemTextStyles} />
-        </MenuItem>
-        <Divider sx={{ my: 0.5, mx: 1 }} />
-        <MenuItem
-          component={Link}
-          href="/dataset-square"
-          onClick={handleMenuClose}
-          sx={styles.getSimpleMenuItemStyles(theme)}
-        >
-          <ListItemIcon sx={styles.smallListItemIconStyles}>
-            <StorageIcon fontSize="small" sx={styles.getPrimaryIconColorStyles(theme)} />
-          </ListItemIcon>
-          <ListItemText primary={t('datasetSquare.title')} primaryTypographyProps={styles.smallListItemTextStyles} />
-        </MenuItem>
-      </Menu>
     </>
   );
 }

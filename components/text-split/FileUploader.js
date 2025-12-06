@@ -13,7 +13,7 @@ import PdfProcessingDialog from './components/PdfProcessingDialog';
 import DomainTreeActionDialog from './components/DomainTreeActionDialog';
 import FileLoadingProgress from './components/FileLoadingProgress';
 import { fileApi, taskApi } from '@/lib/api';
-import { getContent, checkMaxSize, checkInvalidFiles, getvalidFiles } from '@/lib/file/file-process';
+import { getContent, checkMaxSize, checkInvalidFiles, getValidFiles } from '@/lib/file/file-process';
 import { toast } from 'sonner';
 
 export default function FileUploader({
@@ -38,7 +38,7 @@ export default function FileUploader({
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
-  const [pdfProcessConfirmOpen, setpdfProcessConfirmOpen] = useState(false);
+  const [pdfProcessConfirmOpen, setPdfProcessConfirmOpen] = useState(false);
   const [fileToDelete, setFileToDelete] = useState({});
   const [domainTreeActionOpen, setDomainTreeActionOpen] = useState(false);
   const [domainTreeAction, setDomainTreeAction] = useState('');
@@ -123,14 +123,14 @@ export default function FileUploader({
     checkMaxSize(selectedFiles);
     checkInvalidFiles(selectedFiles);
 
-    const validFiles = getvalidFiles(selectedFiles);
+    const validFiles = getValidFiles(selectedFiles);
 
     if (validFiles.length > 0) {
       setFiles(prev => [...prev, ...validFiles]);
     }
     const hasPdfFiles = selectedFiles.filter(file => file.name.endsWith('.pdf'));
     if (hasPdfFiles.length > 0) {
-      setpdfProcessConfirmOpen(true);
+      setPdfProcessConfirmOpen(true);
       setPdfFiles(hasPdfFiles);
     }
   };
@@ -343,7 +343,7 @@ export default function FileUploader({
           {/* 检测到pdf的处理框 */}
           <PdfProcessingDialog
             open={pdfProcessConfirmOpen}
-            onClose={() => setpdfProcessConfirmOpen(false)}
+            onClose={() => setPdfProcessConfirmOpen(false)}
             onRadioChange={handleRadioChange}
             value={pdfStrategy}
             projectId={projectId}

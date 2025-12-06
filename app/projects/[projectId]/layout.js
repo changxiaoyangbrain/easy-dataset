@@ -97,11 +97,18 @@ export default function ProjectLayout({ children, params }) {
   }
 
   return (
-    <>
+    <Box 
+      className="min-h-screen relative"
+      sx={{
+        background: theme => theme.palette.mode === 'dark'
+          ? 'radial-gradient(circle at 50% 30%, #1a2736 0%, #0d1117 100%)' 
+          : 'linear-gradient(135deg, rgba(42, 92, 170, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%)',
+      }}
+    >
       <Navbar projects={projects} currentProject={projectId} />
-      <Box component="main" sx={{ pt: 2 }}>
+      <Box component="main" sx={{ pt: 2, position: 'relative', zIndex: 1 }}>
         {children}
       </Box>
-    </>
+    </Box>
   );
 }

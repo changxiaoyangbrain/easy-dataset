@@ -162,12 +162,7 @@ export default function PdfProcessingDialog({
             onClick={() => handleOptionClick('mineru-local')}
             selected={value === 'mineru-local'}
           />
-          <OptionCard
-            icon={<LaunchOutlinedIcon fontSize="large" />}
-            title={t('textSplit.mineruWebPlatform')}
-            description={t('textSplit.mineruWebPlatformDesc')}
-            onClick={() => handleOptionClick('mineru-web')}
-          />
+
           <OptionCard
             icon={<SmartToyOutlinedIcon fontSize="large" />}
             title={t('textSplit.customVisionModel')}

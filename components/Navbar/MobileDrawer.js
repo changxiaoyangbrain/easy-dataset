@@ -70,7 +70,7 @@ export default function MobileDrawer({
       {/* Drawer Header */}
       <Box sx={styles.getDrawerHeaderStyles(theme)}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-          <Box component="img" src="/imgs/logo.svg" alt="Easy Dataset Logo" sx={{ width: 32, height: 32 }} />
+          <Box component="img" src="/imgs/logo.svg" alt="NuCorpus  Logo" sx={{ width: 32, height: 32 }} />
           <Typography variant="h6" component="h2" sx={{ fontWeight: 700, fontSize: '1.15rem' }}>
             {t('common.navigation', 'Navigation')}
           </Typography>
@@ -230,109 +230,41 @@ export default function MobileDrawer({
           </List>
         </Collapse>
 
-        {/* 更多菜单 */}
+        {/* 模型测试 */}
         <ListItem disablePadding sx={{ mb: 0.5 }}>
           <ListItemButton
-            onClick={() => toggleMobileSubmenu('more')}
+            component={Link}
+            href={`/projects/${currentProject}/playground`}
+            onClick={toggleDrawer}
             role="menuitem"
-            aria-expanded={expandedMenu === 'more'}
-            aria-controls="more-submenu"
             sx={styles.getDrawerListItemButtonStyles(theme)}
           >
             <ListItemIcon sx={styles.listItemIconStyles}>
-              <MoreVertIcon sx={styles.getIconColorStyles(theme)} />
+              <ScienceOutlinedIcon sx={styles.getIconColorStyles(theme)} />
             </ListItemIcon>
-            <ListItemText primary={t('common.more')} primaryTypographyProps={styles.listItemTextStyles} />
-            {expandedMenu === 'more' ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            <ListItemText primary={t('playground.title')} primaryTypographyProps={styles.listItemTextStyles} />
           </ListItemButton>
         </ListItem>
-        <Collapse in={expandedMenu === 'more'} timeout="auto" unmountOnExit id="more-submenu">
-          <List component="div" disablePadding sx={styles.getDrawerSubmenuContainerStyles(theme)}>
-            <ListItemButton
-              sx={styles.getDrawerSubmenuItemStyles(theme)}
-              component={Link}
-              href={`/projects/${currentProject}/settings`}
-              onClick={toggleDrawer}
-            >
-              <ListItemIcon sx={styles.smallListItemIconStyles}>
-                <SettingsOutlinedIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText primary={t('settings.title')} primaryTypographyProps={styles.smallListItemTextStyles} />
-            </ListItemButton>
-            <ListItemButton
-              sx={styles.getDrawerSubmenuItemStyles(theme)}
-              component={Link}
-              href={`/projects/${currentProject}/playground`}
-              onClick={toggleDrawer}
-            >
-              <ListItemIcon sx={styles.smallListItemIconStyles}>
-                <ScienceOutlinedIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText primary={t('playground.title')} primaryTypographyProps={styles.smallListItemTextStyles} />
-            </ListItemButton>
-            <ListItemButton
-              sx={styles.getDrawerSubmenuItemStyles(theme)}
-              component={Link}
-              href="/dataset-square"
-              onClick={toggleDrawer}
-            >
-              <ListItemIcon sx={styles.smallListItemIconStyles}>
-                <StorageIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText
-                primary={t('datasetSquare.title')}
-                primaryTypographyProps={styles.smallListItemTextStyles}
-              />
-            </ListItemButton>
-          </List>
-        </Collapse>
 
-        {/* Utilities Section */}
+        {/* 项目设置 */}
+        <ListItem disablePadding sx={{ mb: 0.5 }}>
+          <ListItemButton
+            component={Link}
+            href={`/projects/${currentProject}/settings`}
+            onClick={toggleDrawer}
+            role="menuitem"
+            sx={styles.getDrawerListItemButtonStyles(theme)}
+          >
+            <ListItemIcon sx={styles.listItemIconStyles}>
+              <SettingsOutlinedIcon sx={styles.getIconColorStyles(theme)} />
+            </ListItemIcon>
+            <ListItemText primary={t('settings.title')} primaryTypographyProps={styles.listItemTextStyles} />
+          </ListItemButton>
+        </ListItem>
+
+        {/* Utilities Section Removed */}
         <Box sx={styles.getDrawerUtilitiesStyles(theme)}>
-          <ListItem disablePadding sx={{ mb: 0.5 }}>
-            <ListItemButton
-              component="a"
-              href={
-                i18n.language === 'zh-CN' ? 'https://docs.easy-dataset.com/' : 'https://docs.easy-dataset.com/ed/en'
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={toggleDrawer}
-              sx={styles.getDrawerListItemButtonStyles(theme)}
-            >
-              <ListItemIcon sx={styles.listItemIconStyles}>
-                <HelpOutlineIcon sx={styles.getIconColorStyles(theme)} />
-              </ListItemIcon>
-              <ListItemText
-                primary={t('common.documentation', 'Documentation')}
-                primaryTypographyProps={styles.listItemTextStyles}
-              />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding sx={{ mb: 0.5 }}>
-            <ListItemButton
-              onClick={() => {
-                window.open('https://github.com/ConardLi/easy-dataset', '_blank');
-                toggleDrawer();
-              }}
-              sx={styles.getDrawerListItemButtonStyles(theme)}
-            >
-              <ListItemIcon sx={styles.listItemIconStyles}>
-                <GitHubIcon sx={styles.getIconColorStyles(theme)} />
-              </ListItemIcon>
-              <ListItemText
-                primary={t('common.viewOnGitHub', 'View on GitHub')}
-                primaryTypographyProps={styles.listItemTextStyles}
-              />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding sx={{ mb: 1 }}>
-            <Box sx={{ px: 1, width: '100%' }}>
-              <UpdateChecker />
-            </Box>
-          </ListItem>
+          {/* Empty or add local utilities if needed later */}
         </Box>
       </List>
     </Drawer>

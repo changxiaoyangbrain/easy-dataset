@@ -13,7 +13,7 @@ export async function POST(request, { params }) {
     const { fileNames, model, language, domainTreeAction = 'rebuild' } = await request.json();
 
     if (!model) {
-      return NextResponse.json({ error: 'Pelease Select Model' }, { status: 400 });
+      return NextResponse.json({ error: 'Please select a model' }, { status: 400 });
     }
 
     const project = await getProject(projectId);

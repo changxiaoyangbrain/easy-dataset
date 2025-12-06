@@ -71,7 +71,10 @@ export default function ProjectCard({ project, onDeleteClick }) {
   };
 
   return (
-    <Card sx={styles.projectCard}>
+    <Card 
+      className="bg-[#1E1E1E] text-white border border-white/5 hover:border-nuclear-yellow/40 hover:shadow-[0_0_20px_rgba(255,215,0,0.1)] transition-all duration-300 group"
+      sx={{ ...styles.projectCard, bgcolor: 'transparent' }}
+    >
       <Link href={`/projects/${project.id}`} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
         <CardActionArea component="div">
           <CardContent sx={{ pt: 2 }}>

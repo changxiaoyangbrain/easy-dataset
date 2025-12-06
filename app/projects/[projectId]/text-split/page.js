@@ -160,9 +160,13 @@ export default function TextSplitPage({ params }) {
     }
   };
 
+  // 核应急模式状态
+  const [isNuclearMode, setIsNuclearMode] = useState(false);
+
   // 包装生成问题的处理函数
   const onGenerateQuestions = async chunkIds => {
-    await handleGenerateQuestions(chunkIds, selectedModelInfo, fetchChunks);
+    const model = { ...selectedModelInfo, generationMode: isNuclearMode ? 'nuclear' : undefined };
+    await handleGenerateQuestions(chunkIds, model, fetchChunks);
   };
 
   // 包装数据清洗的处理函数
@@ -276,6 +280,8 @@ export default function TextSplitPage({ params }) {
             questionFilter={questionFilter}
             setQuestionFilter={setQuestionFilter}
             selectedModel={selectedModelInfo}
+            isNuclearMode={isNuclearMode}
+            setIsNuclearMode={setIsNuclearMode}
           />
         )}
 

@@ -32,9 +32,9 @@ export default function Logo({ theme }) {
           }
         }}
       >
-        <Box component="img" src="/imgs/logo.svg" alt="Easy Dataset Logo" sx={styles.logoImageStyles} />
+        <Box component="img" src="/imgs/logo.svg" alt="NuCorpus  Logo" sx={styles.logoImageStyles} />
         <Typography variant="h6" sx={styles.getLogoTextStyles(theme)}>
-          Easy DataSet
+          NuCorpus
         </Typography>
       </Box>
     </Tooltip>

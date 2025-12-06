@@ -45,8 +45,8 @@ function createMenu(mainWindow, clearCache) {
           label: 'About',
           click: () => {
             dialog.showMessageBox(mainWindow, {
-              title: 'About Easy Dataset',
-              message: `Easy Dataset v${getAppVersion()}`,
+              title: 'About NuCorpus ',
+              message: `NuCorpus  v${getAppVersion()}`,
               detail: 'An application for creating fine-tuning datasets for large models.',
               buttons: ['OK']
             });

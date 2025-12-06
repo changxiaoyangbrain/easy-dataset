@@ -2,7 +2,14 @@
 module.exports = {
   experimental: {
     serverComponentsExternalPackages: ['@opendocsg/pdf2md', 'pdfjs-dist', '@hyzyla/pdfium'],
-    esmExternals: 'loose'
+    esmExternals: 'loose',
+    optimizePackageImports: [
+      '@mui/material', 
+      '@mui/icons-material', 
+      '@mui/lab', 
+      '@lobehub/icons',
+      'lucide-react'
+    ]
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

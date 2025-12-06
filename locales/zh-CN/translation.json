@@ -279,8 +279,8 @@
     "apply": "应用"
   },
   "home": {
-    "title": "Easy Dataset",
-    "subtitle": "一个强大的大型语言模型微调数据集创建工具",
+    "title": "NuCorpus",
+    "subtitle": "面向核应急领域的大模型数据集构造工具",
     "createProject": "创建项目",
     "searchDataset": "搜索公开数据集"
   },
@@ -345,7 +345,7 @@
     "uploadAndProcess": "上传并处理文件",
     "selectedFiles": "已选择文件（{{count}}）",
     "oneFileMessage": "一个项目限制处理一个文件，如需上传新文件请先删除现有文件",
-    "mutilFileMessage": "上传新文件后会重新构建领域树",
+    "multiFileMessage": "上传新文件后会重新构建领域树",
     "noChunks": "暂无文本块，请先上传并处理文献",
     "chunkDetails": "文本块详情: {{chunkId}}",
     "fetchChunksFailed": "获取文本块失败",
@@ -883,7 +883,7 @@
   },
   "migration": {
     "title": "【重要】历史数据迁移",
-    "description": "为了提升大量数据集的检索性能，自 1.3.1 版本起，Easy Dataset 将文件存储方式变更为本地数据库存储，检测到您有历史项目尚未进行迁移，在完成迁移前，您将无法访问这些项目，请尽快完成迁移！",
+    "description": "为了提升大量数据集的检索性能，自 1.3.1 版本起，NuCorpus  将文件存储方式变更为本地数据库存储，检测到您有历史项目尚未进行迁移，在完成迁移前，您将无法访问这些项目，请尽快完成迁移！",
     "projectsList": "未迁移的项目",
     "migrate": "开始迁移",
     "migrating": "迁移中...",

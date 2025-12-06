@@ -64,11 +64,20 @@ export default function ProjectList({ projects, onCreateProject }) {
       <Grid container spacing={3}>
         {projects.length === 0 ? (
           <Grid item xs={12}>
-            <Paper sx={{ p: 4, textAlign: 'center' }}>
-              <Typography variant="h6" color="text.secondary" gutterBottom>
+            <Paper 
+              className="bg-graphite-black/50 backdrop-blur border border-dashed border-white/20 p-8 text-center rounded-2xl hover:border-nuclear-yellow/30 transition-colors duration-300"
+              sx={{ bgcolor: 'transparent', boxShadow: 'none' }}
+            >
+              <Typography variant="h6" className="text-gray-400" gutterBottom>
                 {t('projects.noProjects')}
               </Typography>
-              <Button variant="contained" onClick={onCreateProject} startIcon={<AddCircleOutlineIcon />} sx={{ mt: 2 }}>
+              <Button 
+                variant="outlined" 
+                color="secondary"
+                onClick={onCreateProject} 
+                startIcon={<AddCircleOutlineIcon />} 
+                sx={{ mt: 2, borderWidth: 2, '&:hover': { borderWidth: 2 } }}
+              >
                 {t('projects.createFirst')}
               </Button>
             </Paper>

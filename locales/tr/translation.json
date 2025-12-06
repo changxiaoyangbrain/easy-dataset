@@ -276,7 +276,7 @@
     "detailInfo": "Detaylı Bilgi"
   },
   "home": {
-    "title": "Easy Dataset",
+    "title": "NuCorpus ",
     "subtitle": "Büyük Dil Modelleri için ince ayar veri setleri oluşturmak için güçlü bir araç",
     "createProject": "Proje Oluştur",
     "searchDataset": "Açık Veri Setlerinde Ara"
@@ -336,7 +336,7 @@
     "uploadAndProcess": "Yükle ve İşle",
     "selectedFiles": "Seçilen Dosyalar ({{count}})",
     "oneFileMessage": "Dosya yüklenemez, lütfen önce mevcut dosyayı silin",
-    "mutilFileMessage": "Yeni dosya yüklendikten sonra alan ağacı yeniden oluşturulacak",
+    "multiFileMessage": "Yeni dosya yüklendikten sonra alan ağacı yeniden oluşturulacak",
     "noChunks": "Metin bloğu bulunamadı",
     "chunkDetails": "Blok Detayları: {{chunkId}}",
     "fetchChunksFailed": "Metin blokları getirilemedi",

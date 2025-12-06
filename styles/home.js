@@ -10,8 +10,8 @@ export const styles = {
   heroBackground: theme => ({
     background:
       theme.palette.mode === 'dark'
-        ? 'linear-gradient(135deg, rgba(42, 92, 170, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)'
-        : 'linear-gradient(135deg, rgba(42, 92, 170, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%)',
+        ? 'radial-gradient(circle at 50% 30%, #2A3C55 0%, #1A1A1A 60%, #000000 100%)' // pronounced nuclear reactor glow center
+        : 'linear-gradient(135deg, rgba(42, 92, 170, 0.08) 0%, rgba(255, 215, 0, 0.08) 100%)',
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -20,7 +20,7 @@ export const styles = {
       right: 0,
       bottom: 0,
       background: 'url("/imgs/grid-pattern.png") repeat',
-      opacity: theme.palette.mode === 'dark' ? 0.05 : 0.03,
+      opacity: theme.palette.mode === 'dark' ? 0.08 : 0.03, // Slightly increased opacity
       zIndex: 0
     }
   }),
@@ -29,15 +29,15 @@ export const styles = {
     width: '800px',
     height: '800px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(42, 92, 170, 0) 70%)',
+    background: 'radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, rgba(42, 92, 170, 0) 70%)', // Cherenkov Blue Glow
     top: '-300px',
     right: '-200px',
     zIndex: 0,
-    animation: 'pulse 15s infinite ease-in-out',
+    animation: 'pulse 8s infinite ease-in-out', // Faster radioactive pulse
     '@keyframes pulse': {
-      '0%': { transform: 'scale(1)' },
-      '50%': { transform: 'scale(1.05)' },
-      '100%': { transform: 'scale(1)' }
+      '0%': { transform: 'scale(1)', opacity: 0.8 },
+      '50%': { transform: 'scale(1.05)', opacity: 1 },
+      '100%': { transform: 'scale(1)', opacity: 0.8 }
     }
   },
   decorativeCircleSecond: {
@@ -45,15 +45,15 @@ export const styles = {
     width: '500px',
     height: '500px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(42, 92, 170, 0.1) 0%, rgba(139, 92, 246, 0) 70%)',
+    background: 'radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, rgba(245, 158, 11, 0) 70%)', // Radioactive Yellow Glow
     bottom: '-200px',
     left: '-100px',
     zIndex: 0,
-    animation: 'pulse2 20s infinite ease-in-out',
+    animation: 'pulse2 12s infinite ease-in-out',
     '@keyframes pulse2': {
-      '0%': { transform: 'scale(1)' },
-      '50%': { transform: 'scale(1.08)' },
-      '100%': { transform: 'scale(1)' }
+      '0%': { transform: 'scale(1)', opacity: 0.6 },
+      '50%': { transform: 'scale(1.1)', opacity: 0.9 },
+      '100%': { transform: 'scale(1)', opacity: 0.6 }
     }
   },
   gradientTitle: theme => ({

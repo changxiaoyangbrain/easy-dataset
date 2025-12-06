@@ -83,50 +83,15 @@ export default function HeroSection({ onCreateProject }) {
               gap: { xs: 2, sm: 3 }
             }}
           >
-            <Button
-              variant="contained"
-              size="large"
+            <button
               onClick={onCreateProject}
-              startIcon={<AddCircleOutlineIcon />}
-              sx={{
-                ...styles.createButton(theme),
-                fontWeight: 600,
-                transition: 'all 0.3s ease',
-                transform: 'translateY(0)',
-                px: 4,
-                py: 1.5,
-                borderRadius: '12px',
-                '&:hover': {
-                  transform: 'translateY(-3px)',
-                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
-                }
-              }}
+              className="group relative flex items-center justify-center gap-2 px-8 py-3 bg-reactor-blue hover:bg-reactor-blue-light text-white text-lg font-bold rounded-xl shadow-[0_0_20px_rgba(42,92,170,0.6)] hover:shadow-[0_0_30px_rgba(96,165,250,0.8)] transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
             >
-              {t('home.createProject')}
-            </Button>
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => {
-                window.location.href = '/dataset-square';
-              }}
-              startIcon={<SearchIcon />}
-              sx={{
-                ...styles.createButton(theme),
-                fontWeight: 600,
-                transition: 'all 0.3s ease',
-                transform: 'translateY(0)',
-                px: 4,
-                py: 1.5,
-                borderRadius: '12px',
-                '&:hover': {
-                  transform: 'translateY(-3px)',
-                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
-                }
-              }}
-            >
-              {t('home.searchDataset')}
-            </Button>
+              {/* Nuclear Warning Stripe Effect on Hover */}
+              <div className="absolute inset-0 bg-warning-stripe opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+              <AddCircleOutlineIcon className="relative z-10" />
+              <span className="relative z-10">{t('home.createProject')}</span>
+            </button>
           </Box>
         </Box>
       </Container>

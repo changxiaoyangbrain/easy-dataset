@@ -67,8 +67,8 @@ export default function Navbar({ projects = [], currentProject }) {
         component="nav"
         position="sticky"
         elevation={0}
-        color={theme.palette.mode === 'dark' ? 'transparent' : 'primary'}
-        sx={styles.getAppBarStyles(theme)}
+        className="bg-graphite-black/80 backdrop-blur-md border-b border-white/5 shadow-lg"
+        sx={{ ...styles.getAppBarStyles(theme), bgcolor: 'transparent' }} // Override bgcolor to let Tailwind work
         style={{ borderRadius: 0, zIndex: 1200 }}
         role="navigation"
         aria-label={t('common.mainNavigation', 'Main navigation')}

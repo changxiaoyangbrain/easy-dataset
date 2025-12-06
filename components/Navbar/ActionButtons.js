@@ -53,40 +53,6 @@ export default function ActionButtons({ theme, resolvedTheme, toggleTheme, isPro
           )}
         </IconButton>
       </Tooltip>
-
-      {/* Documentation - Hide below xl */}
-      <Tooltip title={t('documentation')}>
-        <IconButton
-          component="a"
-          href={i18n.language === 'zh-CN' ? 'https://docs.easy-dataset.com/' : 'https://docs.easy-dataset.com/ed/en'}
-          target="_blank"
-          rel="noopener noreferrer"
-          size="medium"
-          sx={styles.getIconButtonStyles(theme)}
-        >
-          <HelpOutlineIcon fontSize="small" />
-        </IconButton>
-      </Tooltip>
-
-      {/* GitHub - Hide at larger tablet screens and below */}
-      <Tooltip title={t('common.visitGitHub', 'View on GitHub')}>
-        <IconButton
-          component="a"
-          href="https://github.com/ConardLi/easy-dataset"
-          target="_blank"
-          rel="noopener noreferrer"
-          size="medium"
-          aria-label={t('common.visitGitHub', 'Open GitHub repository')}
-          sx={styles.getIconButtonStyles(theme)}
-        >
-          <GitHubIcon fontSize="small" />
-        </IconButton>
-      </Tooltip>
-
-      {/* Update Checker - Hide below xl */}
-      <Box sx={{ display: { xs: 'none', xl: 'flex' } }}>
-        <UpdateChecker />
-      </Box>
     </Box>
   );
 }
