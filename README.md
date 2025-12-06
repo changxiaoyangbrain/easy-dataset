@@ -1,321 +1,79 @@
-<div align="center">
+# NuCorpus
 
-![](./public//imgs/bg2.png)
+**核应急领域大模型微调数据集构建工具**
 
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ConardLi/easy-dataset">
-<img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/ConardLi/easy-dataset/total">
-<img alt="GitHub Release" src="https://img.shields.io/github/v/release/ConardLi/easy-dataset">
-<img src="https://img.shields.io/badge/license-AGPL--3.0-green.svg" alt="AGPL 3.0 License"/>
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ConardLi/easy-dataset">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ConardLi/easy-dataset">
-<a href="https://arxiv.org/abs/2507.04009v1" target="_blank">
-  <img src="https://img.shields.io/badge/arXiv-2507.04009-b31b1b.svg" alt="arXiv:2507.04009">
-</a>
+[简体中文](./README.zh-CN.md) | [English](./README.md)
 
-<a href="https://trendshift.io/repositories/13944" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13944" alt="ConardLi%2Feasy-dataset | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+## 概述
 
-**A powerful tool for creating fine-tuning datasets for Large Language Models**
+NuCorpus 是一个专为创建大型语言模型（LLM）微调数据集而设计的应用程序，特别面向核应急等垂直领域。它提供了完整的工作流程：从文档上传、智能切分、问题/答案生成，到数据集导出，使微调过程变得简单高效。
 
-[简体中文](./README.zh-CN.md) | [English](./README.md) | [Türkçe](./README.tr.md)
+## 功能特点
 
-[Features](#features) • [Quick Start](#local-run) • [Documentation](https://docs.easy-dataset.com/ed/en) • [Contributing](#contributing) • [License](#license)
+- **智能文档处理**：支持 PDF、Markdown、DOCX、EPUB、TXT 等多种格式
+- **智能文本分割**：多种分割算法 + 自定义可视化分段
+- **智能问题生成**：从文本片段中提取相关问题，支持核应急场景化问答
+- **领域标签**：智能构建全局领域标签树
+- **答案生成**：使用 LLM API 生成答案及思维链（COT）
+- **灵活编辑**：在任意阶段编辑问题、答案和数据集
+- **多种导出格式**：Alpaca、ShareGPT、multilingual-thinking（JSON/JSONL）
+- **广泛的模型支持**：兼容 OpenAI 格式的 LLM API、Ollama、智谱 AI、OpenRouter
+- **知识图谱（可选）**：支持三元组抽取与 Neo4j 入库
 
-If you like this project, please give it a Star⭐️, or buy the author a coffee => [Donate](./public/imgs/aw.jpg) ❤️!
+## 本地运行
 
-</div>
-
-## Overview
-
-NuCorpus  is an application specifically designed for creating fine-tuning datasets for Large Language Models (LLMs). It provides an intuitive interface for uploading domain-specific files, intelligently splitting content, generating questions, and producing high-quality training data for model fine-tuning.
-
-With NuCorpus , you can transform domain knowledge into structured datasets, compatible with all LLM APIs that follow the OpenAI format, making the fine-tuning process simple and efficient.
-
-![](./public/imgs/en-arc.png)
-
-## Features
-
-- **Intelligent Document Processing**: Supports intelligent recognition and processing of multiple formats including PDF, Markdown, DOCX, etc.
-- **Intelligent Text Splitting**: Supports multiple intelligent text splitting algorithms and customizable visual segmentation
-- **Intelligent Question Generation**: Extracts relevant questions from each text segment
-- **Domain Labels**: Intelligently builds global domain labels for datasets, with global understanding capabilities
-- **Answer Generation**: Uses LLM API to generate comprehensive answers and Chain of Thought (COT)
-- **Flexible Editing**: Edit questions, answers, and datasets at any stage of the process
-- **Multiple Export Formats**: Export datasets in various formats (Alpaca, ShareGPT, multilingual-thinking) and file types (JSON, JSONL)
-- **Wide Model Support**: Compatible with all LLM APIs that follow the OpenAI format
-- **Multi-Language Support**: Complete Turkish language support for UI and all AI operations 🇹🇷
-- **User-Friendly Interface**: Intuitive UI designed for both technical and non-technical users
-- **Custom System Prompts**: Add custom system prompts to guide model responses
-
-## Quick Demo
-
-https://github.com/user-attachments/assets/6ddb1225-3d1b-4695-90cd-aa4cb01376a8
-
-## Local Run
-
-### Download Client
-
-<table style="width: 100%">
-  <tr>
-    <td width="20%" align="center">
-      <b>Windows</b>
-    </td>
-    <td width="30%" align="center" colspan="2">
-      <b>MacOS</b>
-    </td>
-    <td width="20%" align="center">
-      <b>Linux</b>
-    </td>
-  </tr>
-  <tr style="text-align: center">
-    <td align="center" valign="middle">
-      <a href='https://github.com/ConardLi/easy-dataset/releases/latest'>
-        <img src='./public/imgs/windows.png' style="height:24px; width: 24px" />
-        <br />
-        <b>Setup.exe</b>
-      </a>
-    </td>
-    <td align="center" valign="middle">
-      <a href='https://github.com/ConardLi/easy-dataset/releases/latest'>
-        <img src='./public/imgs/mac.png' style="height:24px; width: 24px" />
-        <br />
-        <b>Intel</b>
-      </a>
-    </td>
-    <td align="center" valign="middle">
-      <a href='https://github.com/ConardLi/easy-dataset/releases/latest'>
-        <img src='./public/imgs/mac.png' style="height:24px; width: 24px" />
-        <br />
-        <b>M</b>
-      </a>
-    </td>
-    <td align="center" valign="middle">
-      <a href='https://github.com/ConardLi/easy-dataset/releases/latest'>
-        <img src='./public/imgs/linux.png' style="height:24px; width: 24px" />
-        <br />
-        <b>AppImage</b>
-      </a>
-    </td>
-  </tr>
-</table>
-
-### Install with NPM
-
-1. Clone the repository:
+### 使用 pnpm 安装
 
 ```bash
-   git clone https://github.com/ConardLi/easy-dataset.git
-   cd easy-dataset
+# 安装依赖
+pnpm install
+
+# 初始化数据库
+pnpm db:push
+
+# 启动开发服务器
+pnpm dev
 ```
 
-2. Install dependencies:
+打开浏览器访问 `http://localhost:1717`
 
-```bash
-   npm install
-```
-
-3. Start the development server:
-
-```bash
-   npm run build
-
-   npm run start
-```
-
-4. Open your browser and visit `http://localhost:1717`
-
-### Using the Official Docker Image
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/ConardLi/easy-dataset.git
-cd easy-dataset
-```
-
-2. Modify the `docker-compose.yml` file:
-
-```yml
-services:
-  easy-dataset:
-    image: ghcr.io/conardli/easy-dataset
-    container_name: easy-dataset
-    ports:
-      - '1717:1717'
-    volumes:
-      - ./local-db:/app/local-db
-      - ./prisma:/app/prisma
-    restart: unless-stopped
-```
-
-> **Note:** It is recommended to use the `local-db` and `prisma` folders in the current code repository directory as mount paths to maintain consistency with the database paths when starting via NPM.
-
-> **Note:** The database file will be automatically initialized on first startup, no need to manually run `npm run db:push`.
-
-3. Start with docker-compose:
+### 使用 Docker
 
 ```bash
 docker-compose up -d
 ```
 
-4. Open a browser and visit `http://localhost:1717`
+打开浏览器访问 `http://localhost:1717`
 
-### Building with a Local Dockerfile
+## 使用方法
 
-If you want to build the image yourself, use the Dockerfile in the project root directory:
+### 1. 创建项目
 
-1. Clone the repository:
+在首页点击"创建项目"，输入项目名称和描述，配置 LLM API 设置。
 
-```bash
-git clone https://github.com/ConardLi/easy-dataset.git
-cd easy-dataset
-```
+### 2. 处理文档
 
-2. Build the Docker image:
+在"文本分割"页面上传文件（PDF、Markdown、DOCX、TXT），查看和调整自动分割的文本片段。
 
-```bash
-docker build -t easy-dataset .
-```
+### 3. 生成问题
 
-3. Run the container:
+基于文本块批量构造问题，使用标签树组织问题。
 
-```bash
-docker run -d \
-  -p 1717:1717 \
-  -v ./local-db:/app/local-db \
-  -v ./prisma:/app/prisma \
-  --name easy-dataset \
-  easy-dataset
-```
+### 4. 创建数据集
 
-> **Note:** It is recommended to use the `local-db` and `prisma` folders in the current code repository directory as mount paths to maintain consistency with the database paths when starting via NPM.
+基于问题批量生成答案，查看、编辑并优化生成的答案。
 
-> **Note:** The database file will be automatically initialized on first startup, no need to manually run `npm run db:push`.
+### 5. 导出数据集
 
-4. Open a browser and visit `http://localhost:1717`
+选择导出格式（Alpaca/ShareGPT/multilingual-thinking）和文件格式（JSON/JSONL），添加自定义系统提示后导出。
 
-## How to Use
+## 技术栈
 
-### Create a Project
+- **前端**: Next.js 14 (App Router)、React 18、Material-UI v5
+- **后端**: Node.js、Prisma ORM、SQLite
+- **桌面应用**: Electron
+- **国际化**: i18next（中文、英文、土耳其语）
 
-<table>
-    <tr>
-        <td><img src="./public/imgs/1.png"></td>
-        <td><img src="./public/imgs/2.png"></td>
-    </tr>
-</table>
+## 许可证
 
-1. Click the "Create Project" button on the homepage;
-2. Enter a project name and description;
-3. Configure your preferred LLM API settings
-
-### Process Documents
-
-<table>
-    <tr>
-        <td><img src="./public/imgs/3.png"></td>
-        <td><img src="./public/imgs/4.png"></td>
-    </tr>
-</table>
-
-1. Upload your files in the "Text Split" section (supports PDF, Markdown, txt, DOCX);
-2. View and adjust the automatically split text segments;
-3. View and adjust the global domain tree
-
-### Generate Questions
-
-<table>
-    <tr>
-        <td><img src="./public/imgs/5.png"></td>
-        <td><img src="./public/imgs/6.png"></td>
-    </tr>
-</table>
-
-2. Batch construct questions based on text blocks;
-3. View and edit the generated questions;
-4. Organize questions using the label tree
-
-### Create Datasets
-
-<table>
-    <tr>
-        <td><img src="./public/imgs/7.png"></td>
-        <td><img src="./public/imgs/8.png"></td>
-    </tr>
-</table>
-
-1. Batch construct datasets based on questions;
-2. Generate answers using the configured LLM;
-3. View, edit, and optimize the generated answers
-
-### Export Datasets
-
-<table>
-    <tr>
-        <td><img src="./public/imgs/9.png"></td>
-        <td><img src="./public/imgs/10.png"></td>
-    </tr>
-</table>
-
-1. Click the "Export" button in the Datasets section;
-2. Choose your preferred format (Alpaca or ShareGPT or multilingual-thinking);
-3. Select the file format (JSON or JSONL);
-4. Add custom system prompts as needed;
-5. Export your dataset
-
-## Documentation
-
-- View the demo video of this project: [NuCorpus  Demo Video](https://www.bilibili.com/video/BV1y8QpYGE57/)
-- For detailed documentation on all features and APIs, visit our [Documentation Site](https://docs.easy-dataset.com/ed/en)
-- View the paper of this project: [NuCorpus : A Unified and Extensible Framework for Synthesizing LLM Fine-Tuning Data from Unstructured Documents](https://arxiv.org/abs/2507.04009v1)
-
-## Community Practice
-
-- [NuCorpus  × LLaMA Factory: Enabling LLMs to Efficiently Learn Domain Knowledge](https://buaa-act.feishu.cn/wiki/GVzlwYcRFiR8OLkHbL6cQpYin7g)
-- [NuCorpus  Practical Guide: How to Build High-Quality Datasets?](https://www.bilibili.com/video/BV1MRMnz1EGW)
-- [Interpretation of Key Feature Updates in NuCorpus ](https://www.bilibili.com/video/BV1fyJhzHEb7/)
-- [Foundation Models Fine-tuning Datasets: Basic Knowledge Popularization](https://docs.easy-dataset.com/zhi-shi-ke-pu)
-
-## Contributing
-
-We welcome contributions from the community! If you'd like to contribute to NuCorpus , please follow these steps:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request (submit to the DEV branch)
-
-Please ensure that tests are appropriately updated and adhere to the existing coding style.
-
-## Join Discussion Group & Contact the Author
-
-https://docs.easy-dataset.com/geng-duo/lian-xi-wo-men
-
-## License
-
-This project is licensed under the AGPL 3.0 License - see the [LICENSE](LICENSE) file for details.
-
-## Citation
-
-If this work is helpful, please kindly cite as:
-
-```bibtex
-@misc{miao2025easydataset,
-  title={NuCorpus : A Unified and Extensible Framework for Synthesizing LLM Fine-Tuning Data from Unstructured Documents},
-  author={Ziyang Miao and Qiyu Sun and Jingyuan Wang and Yuchen Gong and Yaowei Zheng and Shiqi Li and Richong Zhang},
-  year={2025},
-  eprint={2507.04009},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
-  url={https://arxiv.org/abs/2507.04009}
-}
-```
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=ConardLi/easy-dataset&type=Date)](https://www.star-history.com/#ConardLi/easy-dataset&Date)
-
-<div align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/ConardLi">ConardLi</a> • Follow me: <a href="./public/imgs/weichat.jpg">WeChat Official Account</a>｜<a href="https://space.bilibili.com/474921808">Bilibili</a>｜<a href="https://juejin.cn/user/3949101466785709">Juejin</a>｜<a href="https://www.zhihu.com/people/wen-ti-chao-ji-duo-de-xiao-qi">Zhihu</a>｜<a href="https://www.youtube.com/@garden-conard">Youtube</a></sub>
-</div>
+本项目采用 AGPL 3.0 许可证。
