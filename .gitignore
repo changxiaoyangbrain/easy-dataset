@@ -12,14 +12,5 @@ mock-login-callback.ts
 /src/test/mock
 /test
 /dist
-/prisma/*.sqlite
 .idea
-!local-db/empty.txt
-/local-db
-prisma/local-db/db.sqlite
-/local-db2
 .trae
-# Project local data/cache (not for git)
-/corpus
-/db.sqlite
-/prisma/prisma/
