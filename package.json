@@ -54,6 +54,8 @@
     "@fontsource/inter": "^5.0.16",
     "@fontsource/jetbrains-mono": "^5.0.18",
     "@huggingface/hub": "^2.0.2",
+    "@langchain/core": "^1.1.4",
+    "@langchain/textsplitters": "^1.0.1",
     "@lobehub/icons": "^1.96.0",
     "@mui/icons-material": "5.16.14",
     "@mui/lab": "5.0.0-alpha.175",

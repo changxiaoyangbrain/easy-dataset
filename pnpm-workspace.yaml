@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@prisma/client'
+  - '@prisma/engines'
+  - canvas
+  - electron
+  - prisma
+  - sharp
